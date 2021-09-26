@@ -28,7 +28,7 @@
         </thead>
         <tbody>
       @foreach ($checks as $item)
-          <tr class="@if ($item->status ==1 && $item->created_at->format("y,m,w") ==date("y,m,w"))
+          <tr class="@if ($item->status ==1 && $item->created_at->format("y,m,w") !=date("y,m,w"))
               bg-success
               @elseif ($item->created_at->format("y,m,w") !=date("y,m,w"))
                   bg-danger

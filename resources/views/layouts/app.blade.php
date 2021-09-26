@@ -28,5 +28,9 @@
         </main>
     </div>
     @livewireScripts
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10">
+    </script>
+    <x-livewire-alert::scripts />
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
 </body>
 </html>

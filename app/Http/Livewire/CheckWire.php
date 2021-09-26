@@ -29,11 +29,8 @@ class CheckWire extends Component
     public function render()
     {
     	$checks = Check::query()->with(['userRelationship'])->orderBy('id','desc')->paginate(8);
-		try {
+    	
 			return view('livewire.check-wire',compact('checks'));
-		}catch (\Exception $exception){
-			return  redirect('check');
-		}
     }
 	
 	/**
@@ -63,6 +60,16 @@ class CheckWire extends Component
 		$data->image = $path;
 		$data->status = rand(1,2);
 		$data->save($validatedData);
-		$this->image = '';
+		$this->alert('success', auth()->user()->name, [
+			'position' =>  'center',
+			'timer' =>  2000,
+			'toast' =>  false,
+			'text' =>  'Ваш чек принят!',
+//			'confirmButtonText' =>  'Ok',
+			'cancelButtonText' =>  false,
+			'showCancelButton' =>  false,
+			'showConfirmButton' =>  false,
+		]);
+		
 	}
 }
