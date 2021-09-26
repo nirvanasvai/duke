@@ -8,9 +8,12 @@
                 <label for="1" class="btn btn-primary">
                     Загрузить Чек
                 <input id="1" type="file" wire:model="image" class="d-none">
-                @error('image') <span class="error">{{ $message }}</span> @enderror
-
                 </label>
+        @error('image') <div class="is-invalid text-danger">
+            <div class="card">
+                {{ $message }}
+            </div>
+        </div> @enderror
     </section>
 
     <table class="table">
